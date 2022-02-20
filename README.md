@@ -32,3 +32,83 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Setting Project
+
+- Create next-app with typescript
+```bash
+yarn create next-app --typescript
+```
+
+- Run eslint
+```bash
+yarn eslint .
+```
+
+- Install eslint plugin
+```bash
+yarn add --dev @typescript-eslint/eslint-plugin
+```
+replace .eslintrc.json file with:
+```bash
+{
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    // I suggest you add those two rules:
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error"
+  }
+}
+```
+
+- Configure Prettier
+```bash
+yarn add --dev prettier eslint-config-prettier
+```
+
+- .prettierrc.json
+```bash
+{
+  "semi": false,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "useTabs": false
+}
+```
+
+- Install TailwindCss
+```bash
+yarn add --dev tailwindcss postcss autoprefixer
+```
+
+- Create tailwind.config.js
+```bash
+npx tailwindcss init -p
+```
+
+- Update tailwind.config.js
+```bash
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+- Add the Tailwind directives to your CSS
+```bash
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
